@@ -1,6 +1,7 @@
 package main
 
 import (
+	"client-server-http/shared"
 	"context"
 	"database/sql"
 	"encoding/json"
@@ -38,11 +39,7 @@ func main() {
 	}
 }
 
-type dolarApiResponse struct {
-	USDBRL struct {
-		Bid string `json:"bid"`
-	} `json:"USDBRL"`
-}
+
 
 func cotacaoHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
@@ -80,7 +77,7 @@ func cotacaoHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var response dolarApiResponse
+	var response shared.DolarApiResponse
 	err = json.Unmarshal(jsonResponse, &response)
 	if err != nil {
 		log.Printf("Erro ao fazer unmarshal da resposta: %v", err)

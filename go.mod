@@ -1,4 +1,4 @@
-module github.com/server.go
+module client-server-http
 
 go 1.24.3
 
