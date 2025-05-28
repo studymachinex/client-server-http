@@ -1,0 +1,10 @@
+services:
+  db:
+    image: mysql/mysql-server:latest
+    container_name: my-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: goexpert
+    ports:
+      - "3306:3306"
